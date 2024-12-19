@@ -1,0 +1,18 @@
+<h1>Recomendaciones Basadas en Tus Datos</h1>
+
+<ul>
+  <% @recommendations.each do |rec| %>
+    <li><%= rec %></li>
+  <% end %>
+
+<h2>Recomendaciones para el Grupo Poblacional</h1>
+
+<% if @predominantly_young_with_low_activity %>
+  <p>Recomendación: Proporcionar menús altos en proteínas y bajas en calorías para fomentar hábitos saludables.</p>
+<% end %>
+
+<% if @low_water_consumption %>
+  <p>Recomendación: Instalar estaciones de agua y promover el consumo de agua durante las comidas.</p>
+<% end %>
+
+<%= link_to 'Volver al Panel de Administración', admins_path, class: 'btn btn-secondary' %>

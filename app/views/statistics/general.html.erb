@@ -1,0 +1,40 @@
+<h1>Estadísticas Generales</h1>
+
+<h2>Distribución por Género</h2>
+<div class="chart-container">
+  <%= pie_chart @gender_distribution, height: "300px", colors: ["#4CAF50", "#FFC107", "#F44336"] %>
+</div>
+
+<h2>Distribución por Ocupación</h2>
+<div class="chart-container">
+  <%= bar_chart @occupation_distribution, height: "300px", colors: ["#2196F3"] %>
+</div>
+
+<h2>Distribución por Edad</h2>
+<div class="chart-container">
+  <%= bar_chart @age_distribution, height: "300px", colors: ["#673AB7"] %>
+</div>
+
+<h2>Comparaciones Grupales</h2>
+<h3>Horas de Sueño Promedio por Género</h3>
+<div class="chart-container">
+  <%= bar_chart @sleep_comparison, height: "300px", colors: ["#F44336", "#4CAF50"] %>
+</div>
+
+<h3>Nivel de Actividad Física Promedio por Género</h3>
+<div class="chart-container">
+  <%= bar_chart @activity_comparison, height: "300px", colors: ["#FFC107", "#2196F3"] %>
+</div>
+
+<h2>Tendencias en Datos</h2>
+<h3>Evolución de Horas de Sueño</h3>
+<div class="chart-container">
+  <%= line_chart @sleep_trends, height: "300px", colors: ["#4CAF50"] %>
+</div>
+
+<h3>Evolución de la Actividad Física</h3>
+<div class="chart-container">
+  <%= line_chart @activity_trends, height: "300px", colors: ["#FFC107"] %>
+</div>
+
+<%= link_to 'Volver', dashboard_path, class: 'btn btn-secondary' %>

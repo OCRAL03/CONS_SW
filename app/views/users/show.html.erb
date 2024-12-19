@@ -1,0 +1,10 @@
+<h1>Tu Perfil</h1>
+
+<p><strong>Nombre:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>Edad:</strong> <%= @user.age %></p>
+<p><strong>Género:</strong> <%= @user.gender %></p>
+<p><strong>Ocupación:</strong> <%= @user.occupation %></p>
+
+<%= link_to 'Editar Perfil', edit_user_path(@user), class: 'btn btn-warning' %>
+<%= link_to 'Volver al Dashboard', dashboard_path, class: 'btn btn-secondary' %>

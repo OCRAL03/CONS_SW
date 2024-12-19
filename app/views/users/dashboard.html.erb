@@ -1,0 +1,40 @@
+<h1>Bienvenido, <%= current_user.name %></h1>
+
+<h2>Tus Estadísticas</h2>
+<div>
+  <%= render partial: 'users/_chart', locals: { chart_data: @sleep_data, title: 'Horas de Sueño' } %>
+</div>
+<div>
+  <%= render partial: 'users/_chart', locals: { chart_data: @activity_data, title: 'Nivel de Actividad Física' } %>
+</div>
+
+<h2>Tus Encuestas</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Establecimiento</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.title %></td>
+        <td><%= survey.establishment.name %></td>
+        <td><%= survey.created_at.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Ver', survey_path(survey), class: 'btn btn-info' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Recomendaciones para ti</h2>
+<ul>
+  <% @recommendations.each do |rec| %>
+    <li><strong><%= rec.title %>:</strong> <%= rec.content %></li>
+  <% end %>
+</ul>

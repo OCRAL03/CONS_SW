@@ -1,0 +1,30 @@
+<%= form_with model: user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Ingresa tu nombre' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, 'Email' %>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'Ingresa tu correo' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :age, 'Edad' %>
+    <%= f.number_field :age, class: 'form-control', placeholder: 'Ingresa tu edad' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender, 'Género' %>
+    <%= f.select :gender, [['Masculino', 'male'], ['Femenino', 'female'], ['Otro', 'other']], 
+                 { prompt: 'Selecciona tu género' }, 
+                 class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :occupation, 'Ocupación' %>
+    <%= f.text_field :occupation, class: 'form-control', placeholder: 'Escribe tu ocupación' %>
+  </div>
+
+  <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+<% end %>

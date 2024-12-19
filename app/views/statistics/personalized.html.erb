@@ -1,0 +1,33 @@
+<h1>Tus Estadísticas Personalizadas</h1>
+
+<h2>Horas de Sueño Promedio</h2>
+<div class="chart-container">
+  <%= bar_chart @sleep_comparison, height: "300px", colors: ["#F44336", "#4CAF50", "#FFC107"] %>
+</div>
+
+<p><strong>Promedio de Horas de Sueño:</strong> <%= @user_sleep_avg.round(2) %> horas</p>
+<p>
+  <% if @user_sleep_avg < 7 %>
+    Recomendación: Dormir más tiempo para mejorar tu salud general.
+  <% elsif @user_sleep_avg > 9 %>
+    Recomendación: Considera equilibrar el sueño con actividad física.
+  <% else %>
+    ¡Tu promedio está dentro del rango ideal! Sigue así.
+  <% end %>
+</p>
+
+<h2>Nivel de Actividad Física</h2>
+<div class="chart-container">
+  <%= pie_chart @activity_comparison, height: "300px", colors: ["#F44336", "#4CAF50"] %>
+</div>
+
+<p><strong>Promedio de Actividad Física:</strong> <%= @user_activity_avg.round(2) %> minutos/semana</p>
+<p>
+  <% if @user_activity_avg < 150 %>
+    Recomendación: Incrementa tu actividad física. Intenta caminar 30 minutos al día.
+  <% else %>
+    ¡Buen trabajo! Estás alcanzando el nivel recomendado por la OMS.
+  <% end %>
+</p>
+
+<%= link_to 'Volver al Dashboard', dashboard_path, class: 'btn btn-secondary' %>

@@ -1,0 +1,31 @@
+<h1>Administradores</h1>
+
+<%= image_tag "iconos/admin.png", alt: "admin", class: "admin" %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Establecimientos Asignados</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admins.each do |admin| %>
+      <tr>
+        <td><%= admin.name %></td>
+        <td><%= admin.email %></td>
+        <td><%= admin.assigned_establishments %></td>
+        <td>
+          <%= link_to 'Ver', admin_path(admin), class: 'btn btn-info' %>
+          <%= link_to 'Editar', edit_admin_path(admin), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', admin_path(admin), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Crear Nuevo Administrador', new_admin_path, class: 'btn btn-primary' %>

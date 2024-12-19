@@ -1,0 +1,11 @@
+@import "navbar";
+@import "forms";
+@import "buttons";
+@import "charts";
+@import "custom";
+
+.base{
+    background: url('fondo/base.jpg') no-repeat center center;
+    background-size: cover;
+  }
+  

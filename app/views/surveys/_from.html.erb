@@ -1,0 +1,31 @@
+<%= form_with model: survey, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title, 'Título de la Encuesta' %>
+    <%= f.text_field :title, class: 'form-control', placeholder: 'Ejemplo: Hábitos de Sueño' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, 'Descripción de la Encuesta' %>
+    <%= f.text_area :description, class: 'form-control', placeholder: 'Breve descripción de la encuesta' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :establishment_id, 'Establecimiento' %>
+    <%= f.collection_select :establishment_id, Establishment.all, :id, :name, 
+                            { prompt: 'Selecciona un establecimiento' }, 
+                            class: 'form-control' %>
+  </div>
+
+  <h3>Preguntas</h3>
+  <%= f.fields_for :questions do |q| %>
+    <div class="form-group">
+      <%= q.label :text, 'Pregunta' %>
+      <%= q.text_field :text, class: 'form-control', placeholder: 'Escribe una pregunta' %>
+      <%= q.hidden_field :_destroy %>
+      <%= link_to 'Eliminar', '#', class: 'btn btn-danger remove_fields' %>
+    </div>
+  <% end %>
+  <%= link_to 'Agregar Pregunta', '#', class: 'btn btn-success add_fields', data: { association: 'questions' } %>
+
+  <%= f.submit 'Guardar Encuesta', class: 'btn btn-primary' %>
+<% end %>

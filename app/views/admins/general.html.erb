@@ -1,0 +1,10 @@
+<h1>Estadísticas Generales</h1>
+
+<h2>Distribución por Género</h2>
+<%= pie_chart @gender_distribution, height: "300px" %>
+
+<h2>Distribución por Ocupación</h2>
+<%= bar_chart @occupation_distribution, height: "300px" %>
+
+<h2>Distribución por Edad</h2>
+<%= bar_chart @age_distribution, height: "300px" %>

@@ -1,0 +1,22 @@
+<h1>Encuesta: <%= @survey.title %></h1>
+
+<p><strong>Descripción:</strong> <%= @survey.description %></p>
+<p><strong>Establecimiento:</strong> <%= @survey.establishment.name %></p>
+<p><strong>Fecha de Creación:</strong> <%= @survey.created_at.strftime('%d/%m/%Y') %></p>
+
+<h2>Preguntas y Respuestas</h2>
+<% @survey.questions.each do |question| %>
+  <h4><%= question.text %></h4>
+  <% if question.responses.any? %>
+    <ul>
+      <% question.responses.each do |response| %>
+        <li><%= response.answer %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p><em>Aún no hay respuestas para esta pregunta.</em></p>
+  <% end %>
+<% end %>
+
+<%= link_to 'Editar Encuesta', edit_survey_path(@survey), class: 'btn btn-warning' %>
+<%= link_to 'Volver a las Encuestas', surveys_path, class: 'btn btn-secondary' %>

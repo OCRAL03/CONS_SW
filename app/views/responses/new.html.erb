@@ -1,0 +1,17 @@
+<h1>Responder Encuesta: <%= @survey.title %></h1>
+
+<p><strong>Descripción:</strong> <%= @survey.description %></p>
+<p><strong>Establecimiento:</strong> <%= @survey.establishment.name %></p>
+
+<%= form_with url: survey_responses_path(@survey), method: :post, local: true do |f| %>
+  <% @survey.questions.each do |question| %>
+    <div class="form-group">
+      <p><strong><%= question.text %></strong></p>
+      <%= f.hidden_field :responses, value: question.id %>
+      <%= f.text_field :responses, placeholder: 'Escribe tu respuesta', class: 'form-control' %>
+    </div>
+  <% end %>
+  <%= f.submit 'Guardar Respuestas', class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to 'Cancelar', surveys_path, class: 'btn btn-secondary' %>

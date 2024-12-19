@@ -1,0 +1,30 @@
+<h1>Todas tus Encuestas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Descripción</th>
+      <th>Establecimiento</th>
+      <th>Fecha</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.title %></td>
+        <td><%= truncate(survey.description, length: 50) %></td>
+        <td><%= survey.establishment.name %></td>
+        <td><%= survey.created_at.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to 'Ver', survey_path(survey), class: 'btn btn-info' %>
+          <%= link_to 'Editar', edit_survey_path(survey), class: 'btn btn-warning' %>
+          <%= link_to 'Eliminar', survey_path(survey), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Crear Nueva Encuesta', new_survey_path, class: 'btn btn-primary' %>
