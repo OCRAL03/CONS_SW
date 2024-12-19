@@ -8,9 +8,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="<%= dashboard_path %>">Dashboard</a>
-          </li>
-          <li class="nav-item">
+          
             <a class="nav-link" href="<%= surveys_path %>">Encuestas</a>
           </li>
           <li class="nav-item">
@@ -18,17 +16,17 @@
           </li>
         <% elsif admin_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="<%= admins_path %>">Administradores</a>
+            <a class="nav-link" href="<%= statistics_path %>">Estadísticas Generales</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= general_statistics_path %>">Estadísticas Generales</a>
+            <a class="nav-link" href="<%= admins_path %>">Administradores</a>
           </li>
         <% end %>
       </ul>
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link" href="<%= edit_user_registration_path %>">Mi Perfil</a>
+            <%= link_to 'Mi Perfil', edit_user_registration_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
             <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete, class: 'nav-link' %>
