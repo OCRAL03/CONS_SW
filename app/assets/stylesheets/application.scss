@@ -1,0 +1,11 @@
+@import "variables";
+@import "custom";
+@import "navbar";
+@import "buttons";
+@import "forms";
+@import "charts";
+
+body {
+  background: url('nubes.png') no-repeat center center fixed;
+  background-size: cover;
+}
