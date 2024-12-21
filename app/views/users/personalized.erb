@@ -1,28 +1,11 @@
 <h1>Estadísticas Personalizadas</h1>
 
+<p><strong>Indice de masa Corporal:</strong> <%= @.round(2) %> :</p>
+
 <h2>Horas de Sueño Promedio</h2>
 <%= bar_chart @sleep_comparison, colors: ["#F44336", "#4CAF50", "#FFC107"], height: "300px" %>
 
-<p><strong>Promedio de Horas de Sueño:</strong> <%= @user_sleep_avg.round(2) %> horas</p>
-<p>
-  <% if @user_sleep_avg < 7 %>
-    Recomendación: Dormir más tiempo para mejorar la salud general.
-  <% elsif @user_sleep_avg > 9 %>
-    Recomendación: Considera equilibrar el sueño con actividad física.
-  <% else %>
-    ¡Tu promedio está dentro del rango ideal! Sigue así.
-  <% end %>
-
 <h2>Nivel de Actividad Física</h2>
 <%= pie_chart @activity_comparison, colors: ["#F44336", "#4CAF50"], height: "300px" %>
-
-<p><strong>Promedio de Actividad Física:</strong> <%= @user_activity_avg.round(2) %> minutos/semana</p>
-<p>
-  <% if @user_activity_avg < 150 %>>
-    Recomendación: Incrementa tu actividad física hasta al menos 150 minutos/semana.
-  <% else %>
-    ¡Buen trabajo! Estás alcanzando el nivel recomendado por la OMS.
-  <% end %>
-</p>
 
 </p>

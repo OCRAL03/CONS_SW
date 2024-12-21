@@ -1,31 +1,23 @@
-<h1>Administradores</h1>
+<div class="admin-dashboard">
+  <header class="dashboard-header">
+    <h1>NutriDatos<sup>®</sup></h1>
+    <h2>Panel de Administración</h2>
+  </header>
 
-<%= image_tag "iconos/admin.png", alt: "admin", class: "admin" %>
+  <div class="dashboard-content">
+    <!-- Menú Lateral -->
+    <aside class="sidebar">
+      <ul>
+        <li><%= link_to "Datos Generales", admin_general_path, class: "sidebar-link" %></li>
+        <li><%= link_to "Editar Datos", edit_admin_path(@admin), class: "sidebar-link" %></li>
+        <li><%= link_to "Gráficos Generales", admin_charts_path, class: "sidebar-link" %></li>
+        <li><%= link_to "Tendencias", admin_trends_path, class: "sidebar-link" %></li>
+      </ul>
+    </aside>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Establecimientos Asignados</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @admins.each do |admin| %>
-      <tr>
-        <td><%= admin.name %></td>
-        <td><%= admin.email %></td>
-        <td><%= admin.assigned_establishments %></td>
-        <td>
-          <%= link_to 'Ver', admin_path(admin), class: 'btn btn-info' %>
-          <%= link_to 'Editar', edit_admin_path(admin), class: 'btn btn-warning' %>
-          <%= link_to 'Eliminar', admin_path(admin), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'Crear Nuevo Administrador', new_admin_path, class: 'btn btn-primary' %>
+    <!-- Contenido Dinámico -->
+    <main class="main-content">
+      <%= yield %>
+    </main>
+  </div>
+</div>

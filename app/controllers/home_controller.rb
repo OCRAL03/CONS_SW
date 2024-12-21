@@ -3,3 +3,4 @@ class HomeController < ApplicationController
       # You can add any logic you need here
     end
   end
+  

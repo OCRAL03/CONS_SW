@@ -1,4 +1,19 @@
-<div class="chart">
-  <h3><%= title %></h3>
-  <%= pie_chart chart_data, colors: ['#4CAF50', '#FFC107', '#F44336'], donut: true %>
-</div>
+<section class="charts-section">
+  <h3>Gráficos Estadísticos Generales</h3>
+  <div class="chart">
+    <h4>Distribución Demográfica</h4>
+    <%= image_tag("charts/demographic_distribution.png", alt: "Distribución Demográfica") %>
+  </div>
+  <div class="chart">
+    <h4>Hábitos Alimenticios</h4>
+    <%= image_tag("charts/food_habits.png", alt: "Hábitos Alimenticios") %>
+  </div>
+  <div class="chart">
+    <h4>Hidratación</h4>
+    <%= image_tag("charts/hydration.png", alt: "Gráfico de Hidratación") %>
+  </div>
+  <div class="chart">
+    <h4>Actividad Física</h4>
+    <%= image_tag("charts/physical_activity.png", alt: "Actividad Física") %>
+  </div>
+</section>

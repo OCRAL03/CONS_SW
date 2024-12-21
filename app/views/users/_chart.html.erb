@@ -1,4 +1,6 @@
 <div class="chart">
   <h3><%= title %></h3>
   <%= pie_chart chart_data, colors: ['#4CAF50', '#FFC107', '#F44336'], donut: true %>
+  <%= line_chart [ name: "IMC", data: { "Semana 1" => 22.3, "Semana 2" => 23.5, "Semana 3" => 21.8 } ] %>
+<p>Etiqueta actual: <%= @user.imc_label %></p>
 </div>

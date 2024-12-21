@@ -1,10 +1,12 @@
-<h1>Estadísticas Generales</h1>
-
-<h2>Distribución por Género</h2>
-<%= pie_chart @gender_distribution, height: "300px" %>
-
-<h2>Distribución por Ocupación</h2>
-<%= bar_chart @occupation_distribution, height: "300px" %>
-
-<h2>Distribución por Edad</h2>
-<%= bar_chart @age_distribution, height: "300px" %>
+<section class="general-info">
+  <h3>Datos del Establecimiento</h3>
+  <ul>
+    <li>Promedio de edad de los comensales: <%= @admin.average_age %></li>
+    <li>Porcentaje de hombres y mujeres: <%= @admin.gender_ratio %></li>
+    <li>Ocupaciones predominantes: <%= @admin.occupations %></li>
+    <li>Preferencias alimenticias del grupo: <%= @admin.food_preferences %></li>
+    <li>Frecuencia de consumo de frutas y verduras: <%= @admin.fruit_veg_frequency %></li>
+    <li>Porcentaje de comensales que prefieren comidas bajas en grasas o azúcares: <%= @admin.low_sugar_fat %></li>
+    <li>Preferencias en términos de sabor, nutrición, precio o variedad: <%= @admin.other_preferences %></li>
+  </ul>
+</section>

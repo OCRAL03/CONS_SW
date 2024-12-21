@@ -1,11 +1,22 @@
-.chart {
-    margin-bottom: 2rem;
-    text-align: center;
-  
-    h3 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $light-color;
+  padding: $spacing-unit;
+  border: 1px solid $dark-color;
+  border-radius: 8px;
+
+  .chart {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
   }
-  
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1.2rem;
+  color: $dark-color;
+  margin-bottom: $spacing-unit / 2;
+}

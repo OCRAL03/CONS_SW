@@ -15,15 +15,25 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :age, 'Talla' %>
+    <%= f.number_field :age, class: 'form-control', placeholder: '¿Cuánto mide en cm?' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :age, 'Peso' %>
+    <%= f.number_field :age, class: 'form-control', placeholder: '¿Cuál es tu peso en Kg?' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :gender, 'Género' %>
-    <%= f.select :gender, [['Masculino', 'male'], ['Femenino', 'female'], ['Otro', 'other']], 
+    <%= f.select :gender, [['Masculino', 'male'], ['Femenino', 'female']], 
                  { prompt: 'Selecciona tu género' }, 
                  class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :occupation, 'Ocupación' %>
-    <%= f.text_field :occupation, class: 'form-control', placeholder: 'Escribe tu ocupación' %>
+    <%= f.text_field :occupation, class: 'form-control', placeholder: ' ¿A qué te dedicas? ' %>
   </div>
 
   <%= f.submit 'Guardar', class: 'btn btn-primary' %>

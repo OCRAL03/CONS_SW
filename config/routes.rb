@@ -1,20 +1,48 @@
 Rails.application.routes.draw do
-  root 'home#index'  # Define the root route
+  # Página raíz
+  root 'home#index'
+  
+  # Devise
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  devise_for :admins, path: 'admin', controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
+  }
 
-  devise_for :users
-  devise_for :admins
-
-  resources :admins
+  # Recursos para usuarios
   resources :users, only: [:show, :edit, :update]
+
+  # Ruta personalizada para el dashboard de usuarios
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 
+  # Encuestas y respuestas
   resources :surveys do
     resources :responses, only: [:new, :create, :index, :show]
   end
 
-  resources :recommendations, only: [:index]   
-  resources :statistics, only: [:index]
-  get 'user_statistics/personalized', to: 'user_statistics#personalized'
-  get 'user_statistics/recommendations', to: 'user_statistics#recommendations'
-  get 'admin_statistics/general', to: 'admin_statistics#general'
+  # Propuestas
+  resources :propuestas, only: [:index, :create]
+  resources :proposals, only: [:create]
+
+  # Recomendaciones
+  resources :recommendations, only: [:index]
+
+  # Estadísticas
+  resources :user_statistics, only: [] do
+    collection do
+      get :personalized
+      get :recommendations
+    end
+  end
+
+  namespace :admin do
+    resources :statistics, only: [] do
+      collection do
+        get :general
+      end
+    end
+  end
 end

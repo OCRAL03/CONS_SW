@@ -1,5 +1,20 @@
-<h1>Editar Administrador</h1>
+<section class="admin-edit-form">
+  <h3>Editar Datos del Establecimiento</h3>
+  <%= form_with(model: @admin, local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :average_age, "Promedio de Edad" %>
+      <%= form.number_field :average_age, class: "form-control" %>
+    </div>
 
-<%= render 'form', admin: @admin %>
+    <div class="form-group">
+      <%= form.label :gender_ratio, "Porcentaje de Hombres/Mujeres" %>
+      <%= form.text_field :gender_ratio, class: "form-control" %>
+    </div>
 
-<%= link_to 'Cancelar', admin_path(@admin), class: 'btn btn-secondary' %>
+    <!-- Más campos aquí -->
+    
+    <div class="form-actions">
+      <%= form.submit "Guardar Cambios", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>

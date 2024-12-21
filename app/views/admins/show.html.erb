@@ -1,9 +1,7 @@
 <h1>Detalles del Administrador</h1>
-
 <p><strong>Nombre:</strong> <%= @admin.name %></p>
-<p><strong>Email:</strong> <%= @admin.email %></p>
+<p><strong>Correo Electrónico:</strong> <%= @admin.email %></p>
 <p><strong>Establecimientos:</strong> <%= @admin.assigned_establishments %></p>
-
 <h2>Estadísticas Generales</h2>
 <div>
   <%= render partial: 'admins/_chart', locals: { chart_data: @age_distribution, title: 'Distribución por Edad' } %>
@@ -11,6 +9,5 @@
 <div>
   <%= render partial: 'admins/_chart', locals: { chart_data: @gender_distribution, title: 'Distribución por Género' } %>
 </div>
-
 <%= link_to 'Editar Administrador', edit_admin_path(@admin), class: 'btn btn-warning' %>
 <%= link_to 'Volver', admins_path, class: 'btn btn-secondary' %>

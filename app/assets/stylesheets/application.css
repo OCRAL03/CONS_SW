@@ -1,10 +1,4 @@
-@import "navbar";
-@import "forms";
-@import "buttons";
-@import "charts";
-@import "custom";
-
-body {
-  background: url('<%= asset_path("images/fondo/base.jpg") %>') no-repeat center center fixed;
-  background-size: cover;
-}
+/*
+* Dummy file to prevent missing asset errors.
+* SCSS is handled by application.scss.
+*/

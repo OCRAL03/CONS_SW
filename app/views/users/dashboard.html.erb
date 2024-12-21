@@ -2,7 +2,7 @@
 
 <h2>Tus Estadísticas</h2>
 <div>
-  <%= render partial: 'users/_chart', locals: { chart_data: @sleep_data, title: 'Horas de Sueño' } %>
+  <%= render partial: 'users/_chart', locals: { chart_data: @imc_data, title: 'Horas de Sueño' } %>
 </div>
 <div>
   <%= render partial: 'users/_chart', locals: { chart_data: @activity_data, title: 'Nivel de Actividad Física' } %>
@@ -12,10 +12,9 @@
 <table>
   <thead>
     <tr>
-      <th>Título</th>
       <th>Establecimiento</th>
       <th>Fecha</th>
-      <th>Acciones</th>
+      <th>Cantidad de Usuarios</th>
     </tr>
   </thead>
   <tbody>
@@ -36,5 +35,42 @@
 <ul>
   <% @recommendations.each do |rec| %>
     <li><strong><%= rec.title %>:</strong> <%= rec.content %></li>
+
+    <p><strong>Promedio de Actividad Física:</strong> <%= @user_activity_avg.round(2) %> minutos/semana</p>
+<p>
+  <% if @user_activity_avg < 150 %>>
+    Recomendación: Incrementa tu actividad física hasta al menos 150 minutos/semana.
+  <% else %>
+    ¡Buen trabajo! Estás alcanzando el nivel recomendado por la OMS.
+  <% end %>
+</p>
+
+<p>
+  <% if @user_activity_avg < 150 %>>
+    Recomendación: Incrementa tu actividad física hasta al menos 150 minutos/semana.
+  <% else %>
+    ¡Buen trabajo! Estás alcanzando el nivel recomendado por la OMS.
+  <% end %>
+</p>
+
+    <p><strong>Promedio de Horas de Sueño:</strong> <%= @user_imc_avg.round(2) %> horas</p>
+<p>
+  <% if @user_imc_avg < 7 %>
+    Recomendación: Dormir más tiempo para mejorar la salud general.
+  <% elsif @user_imc_avg > 9 %>
+    Recomendación: Considera equilibrar el sueño con actividad física.
+  <% else %>
+    ¡Tu promedio está dentro del rango ideal! Sigue así.
+  <% end %>
+
+  <p><strong>Indice de masa Corporal:</strong> <%= @user_imc_avg.round(2) %> horas</p>
+<p>
+  <% if @user_imc_avg = "Bajo peso" %>
+    Recomendación: Aumenta tu ingesta calórica diaria con alimentos saludables
+  <% elsif @user_imc_avg = "Normal" %>
+    Recomendación: ¡Sigue con tus hábitos actuales!
+  <% elsif @user_imc_avg = "Sobrepeso" %>
+    Recomendación: Consulta a un especialista para más detalles.
+  <% end %>
   <% end %>
 </ul>

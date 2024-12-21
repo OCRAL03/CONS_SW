@@ -1,10 +1,51 @@
+// _custom.scss
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-  }
-  
+  font-family: $font-family-primary;
+  color: $text-color;
+  background-color: $light-color;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-unit;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Botones personalizados */
+.button {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button.primary {
+  background-color: #1a73e8;
+  color: white;
+  padding: 10px 20px;
+}
+
+.button.primary:hover {
+  background-color: #165bb7;
+  transform: scale(1.05);
+}
+
+.button.secondary {
+  background-color: #6d9ffb;
+  color: white;
+  padding: 10px 20px;
+}
+
+.button.secondary:hover {
+  background-color: #5883d7;
+  transform: scale(1.05);
+}

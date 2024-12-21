@@ -1,3 +1,24 @@
-<h1>Welcome to the Home Page</h1>
-<%= asset_path("images/fondo/base.jpg") %>
-<%= image_tag("images/fondo/base.jpg") %>
+<!-- Botones con las clases de estilo -->
+  <div class="d-flex justify-content-center gap-3">
+  <%= link_to "Encuestas", surveys_path, class: "button primary px-4 py-3" %>
+  <%= link_to "Gráficos Estadísticos", new_user_session_path, class: "button secondary px-4 py-3" %>
+  <%= link_to "Propuestas", propuestas_path, class: "button primary px-4 py-3" %>
+  </div>
+
+
+<div class="hero-section text-center text-dark" style="background: linear-gradient(135deg,rgb(210, 214, 219),rgb(44, 56, 229)); height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 class="display-4 mb-4 font-weight-bold">Bienvenido a NutriDatos </h1>
+  <p class="lead mb-3" style="max-width: 600px;">
+    Este sistema está diseñado para mejorar el bienestar de los comensales y proporcionar soluciones de análisis y propuestas personalizadas.
+  </p>
+
+</div>
+
+<!-- Sección de llamado a la acción -->
+<div class="cta-section text-center py-5" style="background-color:rgba(67, 39, 227, 0.89);">
+  <h2 class="mb-4">¡Comienza a explorar hoy mismo!</h2>
+  <div class="d-flex justify-content-center gap-3">
+    <%= link_to "Regístrate", new_user_registration_path, class: "button primary px-5 py-3" %>
+    <%= link_to "Iniciar Sesión", new_user_session_path, class: "button secondary px-5 py-3" %>
+  </div>
+</div>

@@ -27,9 +27,9 @@ class AdminsController < ApplicationController
 
   def update
     if @admin.update(admin_params)
-      redirect_to admin_path(@admin), notice: 'Administrador actualizado correctamente.'
+      redirect_to admin_path(@admin), notice: "Datos actualizados correctamente."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -45,7 +45,7 @@ class AdminsController < ApplicationController
   end
 
   def admin_params
-    params.require(:admin).permit(:email, :password, :password_confirmation, :name)
+    params.require(:admin).permit(:average_age, :gender_ratio, :occupations, :food_preferences)
   end
 
   def comparison
